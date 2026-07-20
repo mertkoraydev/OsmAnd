@@ -13,10 +13,9 @@ jobs:
     timeout-minutes: 120
 
     steps:
-    - name: Setup Gradle (cache)
-      uses: gradle/actions/setup-gradle@v4
+    - name: checkout OsmAnd
+      uses: actions/checkout@v7
       with:
-        validate-wrappers: false
         path: android
         fetch-depth: 1
     - name: checkout OsmAnd-resources
@@ -64,6 +63,8 @@ jobs:
 
     - name: Setup Gradle (cache)
       uses: gradle/actions/setup-gradle@v4
+      with:
+        validate-wrappers: false
 
     - name: Grant execute permission for gradlew
       working-directory: ./android
